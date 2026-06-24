@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account — AppDash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="auth-layout">
+  <!-- Left panel -->
+  <div class="auth-brand">
+    <div class="brand-content">
+      <div class="brand-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="12" fill="white" fill-opacity="0.15"/>
+          <path d="M10 20L18 28L30 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>AppDash</span>
+      </div>
+      <div class="brand-tagline">
+        <h2>Join the<br>platform.</h2>
+        <p>Create your account in seconds and start managing your workspace.</p>
+      </div>
+      <div class="brand-steps">
+        <div class="step-item active" data-step="1">
+          <span class="step-num">1</span>
+          <span>Your identity</span>
+        </div>
+        <div class="step-item" data-step="2">
+          <span class="step-num">2</span>
+          <span>Account details</span>
+        </div>
+        <div class="step-item" data-step="3">
+          <span class="step-num">3</span>
+          <span>Preferences</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel -->
+  <div class="auth-form-panel">
+    <div class="auth-form-wrapper register-wrapper">
+      <div class="form-header">
+        <h1>Create your account</h1>
+        <p>Fill in the details below to get started</p>
+      </div>
+
+      <form id="registerForm" class="auth-form" novalidate>
+
+        <!-- Role selector -->
+        <div class="role-selector">
+          <button type="button" class="role-btn active" data-value="false">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Regular User
+          </button>
+          <button type="button" class="role-btn" data-value="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Administrator
+          </button>
+          <input type="hidden" id="admin" value="false">
+        </div>
+
+        <!-- Name row -->
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="nom">Last name</label>
+            <input type="text" id="nom" placeholder="Doe">
+            <span class="field-error" id="nomError"></span>
+          </div>
+          <div class="form-group">
+            <label for="prenom">First name</label>
+            <input type="text" id="prenom" placeholder="John">
+          </div>
+        </div>
+
+        <!-- Age & Pseudo -->
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="age">Age</label>
+            <input type="number" id="age" placeholder="25" min="1" max="120">
+            <span class="field-error" id="ageError"></span>
+          </div>
+          <div class="form-group">
+            <label for="pseudo">Username</label>
+            <input type="text" id="pseudo" placeholder="johndoe">
+            <span class="field-error" id="pseudoError"></span>
+          </div>
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            </span>
+            <input type="email" id="email" placeholder="you@example.com">
+          </div>
+          <span class="field-error" id="emailError"></span>
+        </div>
+
+        <!-- Passwords -->
+        <div class="form-row-2col">
+          <div class="form-group">
+            <label for="MotDePasse">Password</label>
+            <div class="input-wrapper">
+              <input type="password" id="MotDePasse" placeholder="Min. 8 characters">
+              <button type="button" class="toggle-password" aria-label="Show password">
+                <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="field-error" id="passError"></span>
+            <div class="password-strength" id="strengthBar" style="display:none;">
+              <div class="strength-track"><div class="strength-fill" id="strengthFill"></div></div>
+              <span id="strengthLabel"></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="MotDePasseConfirmation">Confirm password</label>
+            <div class="input-wrapper">
+              <input type="password" id="MotDePasseConfirmation" placeholder="Repeat password">
+              <button type="button" class="toggle-password" aria-label="Show password">
+                <svg class="eye-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <span class="field-error" id="confirmPassError"></span>
+          </div>
+        </div>
+
+        <!-- Optional section -->
+        <details class="optional-section">
+          <summary>Optional profile details <span>(expand)</span></summary>
+          <div class="optional-fields">
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label for="Pays">Country</label>
+                <input type="text" id="Pays" placeholder="Morocco">
+              </div>
+              <div class="form-group">
+                <label for="couleur">Accent color</label>
+                <div class="color-input-row">
+                  <input type="color" id="couleur" value="#4a6cf7">
+                  <span id="colorHex">#4a6cf7</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="Devise">Motto / Bio</label>
+              <input type="text" id="Devise" placeholder="Your personal motto">
+            </div>
+            <div class="form-row-2col">
+              <div class="form-group">
+                <label for="avatar">Avatar URL</label>
+                <input type="text" id="avatar" placeholder="https://...">
+              </div>
+              <div class="form-group">
+                <label for="photo">Photo URL</label>
+                <input type="text" id="photo" placeholder="https://...">
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <div class="alert-box" id="alertBox" style="display:none;"></div>
+
+        <button type="submit" class="btn-primary" id="registerBtn">
+          <span class="btn-text">Create account</span>
+          <span class="btn-spinner" style="display:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </span>
+        </button>
+
+      </form>
+
+      <div class="auth-footer">
+        Already have an account? <a href="login.html">Sign in</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="register.js"></script>
+</body>
+</html>

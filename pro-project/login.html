@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — AppDash</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="auth.css">
+</head>
+<body>
+
+<div class="auth-layout">
+  <!-- Left panel - branding -->
+  <div class="auth-brand">
+    <div class="brand-content">
+      <div class="brand-logo">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+          <rect width="40" height="40" rx="12" fill="white" fill-opacity="0.15"/>
+          <path d="M10 20L18 28L30 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>AppDash</span>
+      </div>
+      <div class="brand-tagline">
+        <h2>Manage your team,<br>your way.</h2>
+        <p>A simple, powerful platform to handle users, requests, and workflows in one place.</p>
+      </div>
+      <div class="brand-features">
+        <div class="feature-item">
+          <span class="feature-icon">⚡</span>
+          <span>Real-time updates</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">🔒</span>
+          <span>Role-based access control</span>
+        </div>
+        <div class="feature-item">
+          <span class="feature-icon">📋</span>
+          <span>Request management</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right panel - form -->
+  <div class="auth-form-panel">
+    <div class="auth-form-wrapper">
+      <div class="form-header">
+        <h1>Welcome back</h1>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <form id="loginForm" class="auth-form" novalidate>
+
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,12 2,6"/></svg>
+            </span>
+            <input type="email" id="email" placeholder="you@example.com" autocomplete="email">
+          </div>
+          <span class="field-error" id="emailErr"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">
+            Password
+            <a href="#" class="label-link">Forgot password?</a>
+          </label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            </span>
+            <input type="password" id="password" placeholder="Your password" autocomplete="current-password">
+            <button type="button" class="toggle-password" aria-label="Show password">
+              <svg class="eye-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </button>
+          </div>
+          <span class="field-error" id="passErr"></span>
+        </div>
+
+        <div class="form-row-between">
+          <label class="checkbox-label">
+            <input type="checkbox" id="remember">
+            <span class="checkbox-custom"></span>
+            Remember me for 30 days
+          </label>
+        </div>
+
+        <div class="alert-box" id="alertBox" style="display:none;"></div>
+
+        <button type="submit" class="btn-primary" id="loginBtn">
+          <span class="btn-text">Sign in</span>
+          <span class="btn-spinner" style="display:none;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          </span>
+        </button>
+
+      </form>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Create one</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="auth.js"></script>
+</body>
+</html>

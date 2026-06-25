@@ -140,7 +140,7 @@ loginForm.addEventListener("submit", async (e) => {
       localStorage.removeItem("rememberUser");
     }
 
-    setTimeout(() => { window.location.href = "layout.html"; }, 800);
+    setTimeout(() => { window.location.href = "index.html"; }, 800);
 
   } catch (err) {
     setLoading(false);
